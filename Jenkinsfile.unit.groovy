@@ -1,6 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        label 'docker'
+    }
     stages {
+        stage('Source') {
+            steps {
+                git 'https://github.com/srayuso/unir-cicd.git'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building stage!'
@@ -17,6 +24,8 @@ pipeline {
     post {
         always {
             junit 'results/*_result.xml'
+            cleanWs()
         }
     }
 }
+
