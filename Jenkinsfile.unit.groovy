@@ -24,6 +24,12 @@ pipeline {
                 archiveArtifacts artifacts: 'results/api_result.xml'
             }
         }
+        stage('E2E tests') {
+            steps {
+                sh 'make test-e2e'
+                archiveArtifacts artifacts: 'results/cypress_result.xml'
+            }
+        }
     }
     post {
         always {
