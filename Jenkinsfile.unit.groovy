@@ -2,8 +2,8 @@ pipeline {
     agent any
     stages {
         stage('Source') {
-            steps {
-                git 'https://github.com/srayuso/unir-cicd.git'
+            steps {                
+                git 'https://github.com/chechoyepez/unir-cicd.git'
             }
         }
         stage('Build') {
