@@ -40,7 +40,7 @@ pipeline {
             echo "El pipeline ha terminado con ERRORES"
             emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} - Build # ${env.BUILD_NUMBER}\n Más información en: ${env.BUILD_URL}",
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
-                subject: "Estado Jenkins Build ${currentBuild.currentResult}. Tarea: ${env.JOB_NAME}"
+                subject: "Estado de Jenkins Build: ${currentBuild.currentResult} - Tarea: ${env.JOB_NAME}"
         }
         success{
             echo "Pipeline ha terminado con EXITO"
